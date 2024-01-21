@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;social_lecture_control1.java&apos; to &apos;lecture/src/jp.vstone.sotasample&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;lecture&apos;&#x0D;&#x0A;- 宛先要素: &apos;lecture/src/jp.vstone.sotasample&apos;&#x0D;&#x0A;- オリジナル要素: &apos;jp.vstone.sotasample.social_lecture_control1.java&apos;" description="コンパイル単位をコピー" destination="/src&lt;jp.vstone.sotasample" element1="/src&lt;jp.vstone.sotasample{social_lecture_control1.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1692846691793" units="1" version="1.0"/>
-</session>
