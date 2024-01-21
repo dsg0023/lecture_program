@@ -1,0 +1,238 @@
+package social;
+import jp.vstone.RobotLib.CPlayWave;
+import jp.vstone.RobotLib.CRobotMem;
+import jp.vstone.RobotLib.CRobotPose;
+import jp.vstone.RobotLib.CRobotUtil;
+import jp.vstone.RobotLib.CSotaMotion;
+import jp.vstone.sotatalk.TextToSpeechSota;
+
+public class Control10 {
+	static final String TAG = "Control10";
+	public static void main(String[] args) {
+		CRobotUtil.Log(TAG, "Start " + TAG);
+
+		CPlayWave cplay = null;
+		CRobotPose pose;
+		//VSMDと通信ソケット・メモリアクセス用クラス
+		CRobotMem mem = new CRobotMem();
+		//Sota用モーション制御クラス
+		CSotaMotion motion = new CSotaMotion(mem);
+
+		if(mem.Connect()){
+			//Sota仕様にVSMDを初期化
+			motion.InitRobot_Sota();
+
+			CRobotUtil.Log(TAG, "Rev. " + mem.FirmwareRev.get());
+
+			//サーボモータを現在位置でトルクOnにする
+			CRobotUtil.Log(TAG, "Servo On");
+			motion.ServoOn();
+
+			pose = new CRobotPose();
+			pose.SetPose(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{2,-894,-4,896,6,-127,-166,-4}
+							);
+			pose.SetTorque(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{100,100,100,100,100,100,100,100}
+							);
+			pose.SetLed(	new Byte[]{0,1,2,8,9,10,11,12,13},
+							new Short[]{0,-255,0,180,80,0,180,80,0}
+							);
+			CRobotUtil.Log(TAG, "play:" + motion.play(pose,500));
+			CRobotUtil.wait(500);
+
+
+			String file = TextToSpeechSota.getTTSFile((String)"そこで，永留らの研究では，研究知の共有・学び合い・洗練の足場を築くコミュニティサイトである",(int)11,(int)1,(int)11);
+			if(file!=null){
+				if(cplay != null){
+					cplay.stop();
+				}
+				cplay = CPlayWave.PlayWave(file,false);
+			}
+
+			CRobotUtil.wait((int)6900);
+			pose = new CRobotPose();
+			pose.SetPose(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{-1192,-787,-4,-405,67,-281,-270,-9}
+							);
+			pose.SetTorque(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{100,100,100,100,100,100,100,100}
+							);
+			pose.SetLed(	new Byte[]{0,1,2,8,9,10,11,12,13},
+							new Short[]{0,-255,0,255,0,0,255,0,0}
+							);
+			CRobotUtil.Log(TAG, "play:" + motion.play(pose,1000));
+			CRobotUtil.wait(1000);
+
+
+			try {
+				Runtime r = Runtime.getRuntime();
+				Process p = r.exec("./chgvol.sh up 2");
+				p.waitFor(); // プロセス終了を待つ
+	            p.destroy(); // プロセスを完全終了
+			} catch (Exception e) {
+				e.printStackTrace();
+				}
+			file = TextToSpeechSota.getTTSFile((String)"ハイパーブログシステム",(int)9,(int)5,(int)11);
+			if(file!=null){
+				if(cplay != null){
+					cplay.stop();
+				}
+				cplay = CPlayWave.PlayWave(file,false);
+			}
+
+			CRobotUtil.wait((int)2000);
+
+			try {
+				Runtime r = Runtime.getRuntime();
+				Process p = r.exec("./chgvol.sh down 2");
+				p.waitFor(); // プロセス終了を待つ
+	            p.destroy(); // プロセスを完全終了
+			} catch (Exception e) {
+				e.printStackTrace();
+				}
+			file = TextToSpeechSota.getTTSFile((String)"というものが開発されました．ラボのメンバーはこのサイトに研究知をblog形式で表現し，投稿・蓄積します．そして、",(int)11,(int)1,(int)11);
+			if(file!=null){
+				if(cplay != null){
+					cplay.stop();
+				}
+				cplay = CPlayWave.PlayWave(file,false);
+			}
+
+			pose = new CRobotPose();
+			pose.SetPose(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{2,-894,-4,896,6,-127,-166,-4}
+							);
+			pose.SetTorque(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{100,100,100,100,100,100,100,100}
+							);
+			pose.SetLed(	new Byte[]{0,1,2,8,9,10,11,12,13},
+							new Short[]{0,-255,0,180,80,0,180,80,0}
+							);
+			CRobotUtil.Log(TAG, "play:" + motion.play(pose,1000));
+			CRobotUtil.wait(1000);
+			CRobotUtil.wait((int)8800);
+			pose = new CRobotPose();
+			pose.SetPose(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{-1192,-797,-4,844,67,-753,-148,-9}
+							);
+			pose.SetTorque(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{100,100,100,100,100,100,100,100}
+							);
+			pose.SetLed(	new Byte[]{0,1,2,8,9,10,11,12,13},
+							new Short[]{0,-255,0,255,0,0,255,0,0}
+							);
+			CRobotUtil.Log(TAG, "play:" + motion.play(pose,1000));
+			CRobotUtil.wait(1000);
+
+
+			try {
+				Runtime r = Runtime.getRuntime();
+				Process p = r.exec("./chgvol.sh up 2");
+				p.waitFor(); // プロセス終了を待つ
+	            p.destroy(); // プロセスを完全終了
+			} catch (Exception e) {
+				e.printStackTrace();
+				}
+			file = TextToSpeechSota.getTTSFile((String)"blogに付けられるタグ、研究テーマ設定，研究ミーティング，システム開発などによって、構造化を行なうことで，タグを探索キーとして多角的に研究知探索を行うことが可能となっています．また，探索対象と探索手順を整理した",(int)11,(int)1,(int)11);
+			if(file!=null){
+				if(cplay != null){
+					cplay.stop();
+				}
+				cplay = CPlayWave.PlayWave(file,false);
+			}
+
+			CRobotUtil.wait((int)7000);
+			pose = new CRobotPose();
+			pose.SetPose(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{-1191,-787,-5,-306,67,-287,-68,-5}
+							);
+			pose.SetTorque(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{100,100,100,100,100,100,100,100}
+							);
+			pose.SetLed(	new Byte[]{0,1,2,8,9,10,11,12,13},
+							new Short[]{0,-255,0,255,0,0,255,0,0}
+							);
+			CRobotUtil.Log(TAG, "play:" + motion.play(pose,1000));
+			CRobotUtil.wait(1000);
+			CRobotUtil.wait((int)5000);
+			pose = new CRobotPose();
+			pose.SetPose(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{2,-894,-4,896,6,-127,-166,-4}
+							);
+			pose.SetTorque(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{100,100,100,100,100,100,100,100}
+							);
+			pose.SetLed(	new Byte[]{0,1,2,8,9,10,11,12,13},
+							new Short[]{0,-255,0,180,80,0,180,80,0}
+							);
+			CRobotUtil.Log(TAG, "play:" + motion.play(pose,1000));
+			CRobotUtil.wait(1000);
+			try {
+				Runtime r = Runtime.getRuntime();
+				Process p = r.exec("./chgvol.sh down 2");
+				p.waitFor(); // プロセス終了を待つ
+	            p.destroy(); // プロセスを完全終了
+			} catch (Exception e) {
+				e.printStackTrace();
+				}
+			CRobotUtil.wait((int)3500);
+			pose = new CRobotPose();
+			pose.SetPose(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{-1192,-786,-5,-93,63,-286,50,2}
+							);
+			pose.SetTorque(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{100,100,100,100,100,100,100,100}
+							);
+			pose.SetLed(	new Byte[]{0,1,2,8,9,10,11,12,13},
+							new Short[]{0,-255,0,255,0,0,255,0,0}
+							);
+			CRobotUtil.Log(TAG, "play:" + motion.play(pose,1000));
+			CRobotUtil.wait(1000);
+
+
+			try {
+				Runtime r = Runtime.getRuntime();
+				Process p = r.exec("./chgvol.sh up 2");
+				p.waitFor(); // プロセス終了を待つ
+	            p.destroy(); // プロセスを完全終了
+			} catch (Exception e) {
+				e.printStackTrace();
+				}
+			file = TextToSpeechSota.getTTSFile((String)"探索スキーマを設計し，提供することで，蓄積ブログの探索・閲覧が促進され，研究知の学び合いが促進される可能性が示唆されています．",(int)11,(int)1,(int)11);
+			if(file!=null){
+				if(cplay != null){
+					cplay.stop();
+				}
+				cplay = CPlayWave.PlayWave(file,false);
+			}
+
+			CRobotUtil.wait((int)5500);
+			pose = new CRobotPose();
+			pose.SetPose(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{2,-894,-4,896,6,-127,-166,-4}
+							);
+			pose.SetTorque(	new Byte[]{1,2,3,4,5,6,7,8},
+							new Short[]{100,100,100,100,100,100,100,100}
+							);
+			pose.SetLed(	new Byte[]{0,1,2,8,9,10,11,12,13},
+							new Short[]{0,-255,0,180,80,0,180,80,0}
+							);
+			CRobotUtil.Log(TAG, "play:" + motion.play(pose,1000));
+			CRobotUtil.wait(1000);
+			try {
+				Runtime r = Runtime.getRuntime();
+				Process p = r.exec("./chgvol.sh down 2");
+				p.waitFor(); // プロセス終了を待つ
+	            p.destroy(); // プロセスを完全終了
+			} catch (Exception e) {
+				e.printStackTrace();
+				}
+			CRobotUtil.wait((int)5500);
+
+	//サーボモータのトルクオフ
+			CRobotUtil.Log(TAG, "Servo Off");
+			motion.ServoOff();
+		}
+	}
+}

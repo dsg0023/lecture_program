@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/core-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/javase-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/jna-4.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/opencv-310.jar"/>
+	<classpathentry kind="lib" path="lib/sotalib.jar"/>
+	<classpathentry kind="lib" path="lib/SRClientHelper.jar"/>
+	<classpathentry kind="lib" path="runnablejar/servosoundtest_commu.jar"/>
+	<classpathentry kind="lib" path="runnablejar/servosoundtest.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
