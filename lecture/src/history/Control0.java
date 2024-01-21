@@ -42,7 +42,7 @@ public class Control0 {
 			CRobotUtil.wait(500);
 
 
-			String file = TextToSpeechSota.getTTSFile((String)"こんにちは。学習工学誕生の歴史についての講義を担当している、カシハラです。初めて学ぶ人にとっては少し難しい内容かもしれませんが、この講義を聞けばきっと理解できるようになりますので、しっかりと聞いてください。",(int)11,(int)1,(int)11);
+			String file = TextToSpeechSota.getTTSFile((String)"こんにちは。学習工学誕生の歴史についての講義を担当している、ソータです。初めて学ぶ人にとっては少し難しい内容かもしれませんが、この講義を聞けばきっと理解できるようになりますので、しっかりと聞いてください。",(int)11,(int)1,(int)11);
 			if(file!=null){
 				if(cplay != null){
 					cplay.stop();
